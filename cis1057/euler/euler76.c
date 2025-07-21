@@ -49,7 +49,11 @@ int main(int argc, char *argv[])
                                                         //Loops as long as numberToUse is less than number needed to find
         for (int sum = numberToUse; sum <= target; sum++) { //sum = target
                                                             //target: number of ways to add up to a certain number (100 in here)
-            ways[sum] += ways[sum - numberToUse]; //finds the number of ways to add up to int sum
+            ways[sum] += ways[sum - numberToUse]; //finds the number of "ways" to add up to int sum
+                                                //since sum <= target, numberToUse is number being tested
+                                                //right side finds the 
+                                                //thought process: If I aleready know how many ways I can make "sum - numberToUse", 
+                                                //    then I can make "sum" by adding "numberToUse" to each of those combinations
         }
     }
 
