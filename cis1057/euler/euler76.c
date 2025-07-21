@@ -22,27 +22,34 @@ int main(int argc, char *argv[])
 {
     // Check if user provided exactly one argument
     if (argc != 2) {
-        printf("Usage: %s <positive integer>\n", argv[0]);
+        printf("Usage: %s <positive integer>\n", argv[0]); //Prints error statement
+                                                        //If user does not input more than 2 values
         return 1;
     }
 
-    // Convert the input argument to an integer
-    int target = atoi(argv[1]);
+    int target = atoi(argv[1]); //Using atoi() convert string argv[1] into integer
+                                //target: number of sums that add up to 100 we want to find
 
     if (target < 2) {
-        printf("Please enter a number greater than or equal to 2.\n");
+        printf("Please enter a number greater than or equal to 2.\n");  // If number is not at least 2, prints statement
+                                                                        //needs to sum at least 2 posititve integers
         return 1;
     }
 
-    int ways[target + 1];
-    for (int i = 0; i <= target; i++) {
-        ways[i] = 0;
+    int ways[target + 1];   //array index starts at 0, so target + 1
+                            //trying to find how many ways 100 can be calculated
+    for (int i = 0; i <= target; i++) { 
+        ways[i] = 0; //avoiding garbage values present
     }
-    ways[0] = 1;
+    ways[0] = 1; //represents 1 way to write number "0" as sum
 
-    for (int part = 1; part < target; part++) {
-        for (int sum = part; sum <= target; sum++) {
-            ways[sum] += ways[sum - part];
+    for (int numberToUse = 1; numberToUse < target; numberToUse++) { //numberToUse: Numbers allowed to use (between 1-99)
+                                                        //initialized ways[0] to 1
+                                                        //Numbers that we are allowed to use to add up to sum
+                                                        //Loops as long as numberToUse is less than number needed to find
+        for (int sum = numberToUse; sum <= target; sum++) { //sum = target
+                                                            //target: number of ways to add up to a certain number (100 in here)
+            ways[sum] += ways[sum - numberToUse]; //finds the number of ways to add up to int sum
         }
     }
 
