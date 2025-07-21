@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 {
     // Check if user provided exactly one argument
     if (argc != 2) {
-        printf("Usage: %s <positive integer>\n", argv[0]); //Prints error statement
+        printf("Usage: %s positive integer\n", argv[0]); //Prints error statement
                                                         //If user does not input more than 2 values
         return 1;
     }
