@@ -22,9 +22,10 @@
  * century (1 Jan 1901 to 31 Dec 2000)?
  */
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) 
+{
     int monthDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    int sunCount = 0;
+    int CountSunday = 0;
     int month;
     int year;
     int dayOfWeek = 1; // January 1, 1900 was a Monday (1)
@@ -59,7 +60,7 @@ int main(int argc, char *argv[]) {
             // Check if the first day of this month is a Sunday
             if (dayOfWeek == 7) // Sunday
             {
-                sunCount++;
+                CountSunday++;
                 printf("Sunday found: %d/1/%d\n", month, year);
             }
             
@@ -69,6 +70,6 @@ int main(int argc, char *argv[]) {
         }
     }
     
-    printf("Total Sundays on the first of the month (1901-2000): %d\n", sunCount);
+    printf("Total Sundays on the first of the month (1901-2000): %d\n", CountSunday);
     return EXIT_SUCCESS;
 }
